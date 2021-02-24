@@ -17,7 +17,7 @@ def lambda_handler(event, context):
     #  - Reload systemctl daemon
     #  - set the system to shutdown the instance in 60 minutes.
     init_script = """#!/bin/bash
-yum update -y
+sudo yum update -y
 sudo wget -O /etc/yum.repos.d/jenkins.repo \
     https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
@@ -26,7 +26,7 @@ sudo yum install jenkins java-1.8.0-openjdk-devel
 sudo systemctl daemon-reload
 sudo systemctl start jenkins
 sudo systemctl status jenkins
-shutdown -P +60"""
+shutdown -P +180"""
 
     print("Running script:")
     print(init_script)
