@@ -15,7 +15,7 @@ def lambda_handler(event, context):
     # bash script to run:
     #  - Install Jenkins
     #  - Reload systemctl daemon
-    #  - set the system to shutdown the instance in 60 minutes.
+    #  - set the system to shutdown the instance in 180 minutes.
     init_script = """#!/bin/bash
 sudo yum update -y
 sudo wget -O /etc/yum.repos.d/jenkins.repo \
